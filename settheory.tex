@@ -4,7 +4,7 @@
 % driver file settheory.tex to produce text
 
 \preto\OLEndChapterHook{\IfFileExists{include/summary-\thechapter}
-        {\section*{Summary}\addcontentsline{toc}{section}{Summary}
+        {\section*{小结}\addcontentsline{toc}{section}{小结}
         \let\emph\textbf\input{include/summary-\thechapter}\let\emph\textit}{}}
 
 \problemsperchapter
@@ -19,81 +19,40 @@
 
 \mainmatter
 
-\part{Prelude}
+\part{序篇}
 
-\olchapter{his}{set}{History and Mythology}
+\olchapter{his}{set}{历史与神话}
 
-To understand the philosophical significance of set theory, it will
-help to have some sense of why set theory arose at all. To understand
-that, it will help to think a little bit about the history and
-mythology of mathematics. So, before we get started on discussing set
-theory at all, we will start with a very brief ``history''. But we put
-this in scare-quotes, because it is very brief, extremely selective,
-and somewhat contestable.
+要理解集合论的哲学意义，有必要先了解集合论究竟为何会产生。而要了解这一点，不妨稍许思考数学的历史与神话。因此，在开始讨论集合论本身之前，我们将从一个非常简短的“历史”讲起。但我们给这个词加上了引号，因为它非常简略，极具选择性，并且多少有些争议。
 
 \olimport*[history/set-theory]{infinitesimals}
 \olimport*[history/set-theory]{limits}
 \olimport*[history/set-theory]{pathologies}
 \olimport*[history/set-theory]{mythology}
 
-\section{Roadmap}
+\section{路线图}
 
-Part of the moral of the previous section is that the history of
-mathematics was largely written by the victors. They had axes to
-grind; philosophical and mathematical axes. Serious study of the
-history of mathematics is seriously difficult (and rewarding), and the
-Owl of Minerva takes flight only at dusk.
+上一节的部分寓意在于，数学史在很大程度上是由胜利者书写的。他们各有自己的主张要推行——哲学的和数学的主张。严肃地研究数学史极其困难（也回报丰厚），而密涅瓦的猫头鹰只在黄昏时分起飞。
 
-For all that, it's incontestable that the ``pathological'' results
-involved the development of fascinating new mathematical tools, and a
-re-thinking of the standards of mathematical rigour. For example, they
-required thinking of the continuum (the ``real line'') in a particular
-way, and thinking of functions as point-by-point maps. And, in the
-end, the full development of all of these tools required the rigorous
-development of set theory. The rest of this book will explain some of
-that development.
+尽管如此，无可争议的是，那些“病态的”结果推动了令人着迷的新数学工具的发展，并促使人们重新思考数学严谨性的标准。例如，它们要求以特定的方式思考连续统（“实数线”），并将函数视为逐点的映射。而最终，所有这些工具的全面发展，都需要严格地发展集合论。本书余下部分将介绍这一发展的部分内容。
 
-\Olref[sfr][][]{part} will present a version of \emph{na\"ive} set
-theory, which is easily sufficient to develop all of the mathematics
-just described. This will take a while. But, by end of
-\olref[sfr][][]{part} we will be in a position to understand how to
-treat real numbers as certain sets, and how to treat functions on
-them---including space-filling curves---as \emph{further} sets. 
+\Olref[sfr][][]{part}将介绍一种\emph{朴素}集合论，它足以发展出刚才描述的全部数学。这部分内容将占用不少篇幅。但到\olref[sfr][][]{part}结束时，我们将能够理解如何将实数视为某些集合，以及如何将实数上的函数（包括充满空间的曲线）视为\emph{更进一步}的集合。
 
-But the \emph{na\"ivety} of this set theory will emerge in
-\olref[sth][][]{part}, as we encounter set-theoretic paradoxes, and
-the felt need to describe things much more precisely. At this point,
-we will need to develop an axiomatic treatment of sets, which we can
-use to recapture all of our na\"ive results, whilst (hopefully)
-avoiding paradoxes. (The Owl of mathematical rigour takes flight only
-at dusk, too.)
+但这种集合论的\emph{朴素性}将在\olref[sth][][]{part}中显现出来，届时我们将遇到集合论悖论，并感到需要更精确地描述事物。此时，我们将需要发展一套关于集合的公理化处理方式，用以重获我们所有的朴素结果，同时（希望）避免悖论。（数学严谨性的猫头鹰，也只在黄昏时分起飞。）
 
 \OLEndChapterHook
 
-\olpart{sfr}{Na\"ive Set Theory}
+\olpart{sfr}{朴素集合论}
 
-\section*{Introduction to \Olref[sfr][][]{part}}
+\section*{\Olref[sfr][][]{part}导言}
 
-In \olref[sfr][][]{part}, we will consider sets in a na\"ive, informal
-way. \Olref[sfr][set][]{chap} will introduce the basic idea, that sets
-are collections considered extensionally, and will introduce some very
-basic operations. Then \crefrange{sfr:rel::chap}{sfr:fun::chap} will
-explain how set theory allows us to speak about relations and
-(therefore) functions. 
+在\olref[sfr][][]{part}中，我们将以一种朴素、非形式化的方式考虑集合。\Olref[sfr][set][]{chap}将介绍基本思想，即集合是从外延角度考虑的汇集，并介绍一些非常基本的运算。接着，\crefrange{sfr:rel::chap}{sfr:fun::chap}将解释集合论如何让我们谈论关系以及（由此而来的）函数。
 
-\Crefrange{sfr:siz::chap}{sfr:infinite::chap} will then consider some of the
-early achievements of na\"ive set theory. In
-\olref[sfr][siz][]{chap}, we explore how to compare sets with regard
-to their size. In \olref[sfr][arith][]{chap}, we explore how one
-might reduce the integers, rationals, and reals to set theory plus
-basic arithmetic. In \olref[sfr][infinite][]{chap}, we consider how one
-might implement basic arithmetic within set theory. 
+然后，\Crefrange{sfr:siz::chap}{sfr:infinite::chap}将讨论朴素集合论的一些早期成果。在\olref[sfr][siz][]{chap}中，我们探讨如何比较集合的大小。在\olref[sfr][arith][]{chap}中，我们探讨如何将整数、有理数和实数还原为集合论与基本算术。在\olref[sfr][infinite][]{chap}中，我们考虑如何在集合论内实现基本算术。
 
-To repeat, all of this will be done \emph{na\"ively}. But everything
-we do in \olref[sfr][][]{part} can be done perfectly rigorously, in
-the formal set theory which we introduce in \olref[sth][][]{part}.
+重申一下，所有这些工作都将以\emph{朴素}的方式进行。但我们在\olref[sfr][][]{part}中所做的一切，都可以在\olref[sth][][]{part}中引入的形式化集合论中，完全严格地实现。
 
-\olchapter{sfr}{set}{Getting Started}
+\olchapter{sfr}{set}{入门}
 
 \olimport*[sets-functions-relations/sets]{basics}
 \olimport*[sets-functions-relations/sets]{subsets}
@@ -104,7 +63,7 @@ the formal set theory which we introduce in \olref[sth][][]{part}.
 
 \OLEndChapterHook
 
-\olchapter{sfr}{rel}{Relations}
+\olchapter{sfr}{rel}{关系}
 
 \olimport*[sets-functions-relations/relations]{relations-as-sets}
 \olimport*[sets-functions-relations/relations]{reflections}
@@ -115,7 +74,7 @@ the formal set theory which we introduce in \olref[sth][][]{part}.
 
 \OLEndChapterHook
 
-\olchapter{sfr}{fun}{Functions}
+\olchapter{sfr}{fun}{函数}
 
 \olimport*[sets-functions-relations/functions]{function-basics}
 \olimport*[sets-functions-relations/functions]{function-kinds}
@@ -125,7 +84,7 @@ the formal set theory which we introduce in \olref[sth][][]{part}.
 
 \OLEndChapterHook
 
-\olchapter{sfr}{siz}{The Size of Sets}
+\olchapter{sfr}{siz}{集合的大小}
 
 \olimport*[sets-functions-relations/size-of-sets]{introduction}
 \olimport*[sets-functions-relations/size-of-sets]{enumerability-alt}
@@ -142,150 +101,119 @@ the formal set theory which we introduce in \olref[sth][][]{part}.
 \OLEndChapterHook
 
 \olsetchapter{nosection}
-\chapter{Arithmetization}
+\chapter{算术化}
 
-In \olref[his][set][]{chap}, we considered some of the historical
-background, as to \emph{why} we even have set theory.
-\Crefrange{sfr:set::chap}{sfr:siz::chap} then worked through through
-some principles of na\"ive set theory. So we now understand,
-na\"ively, how to construct relations and functions and compare the
-sizes of sets, and \emph{things like that}. 
+在\olref[his][set][]{chap}中，我们考察了为何需要集合论的一些历史背景。\Crefrange{sfr:set::chap}{sfr:siz::chap}则探讨了朴素集合论的一些原理。所以，我们现在从朴素的角度理解了如何构造关系、函数以及比较集合的大小，\emph{诸如此类的内容}。
 
-With this under our belts, we can approach some of the early
-achievements of set theory, in reducing (in some sense) large chunks
-of mathematics to set theory and arithmetic. That is the aim of this
-chapter.
+有了这些基础，我们便可以探讨集合论的一些早期成果，即在某种意义上将数学的大部分内容归约到集合论和算术。这就是本章的目标。
 
 \olimport*[sets-functions-relations/arithmetization]{arithmetization}
 
-\chapter{Infinite Sets}
+\chapter{无限集}
 
-In the previous chapter, we showed how to construct a bunch of
-things---integers, rationals, and reals---assuming some na\"{i}ve set
-theory and the natural numbers. The question for this chapter is: Can
-we construct the set of natural numbers \emph{itself} using set
-theory?
+在上一章中，我们展示了如何基于朴素集合论和自然数来构造一系列东西——整数、有理数和实数。本章要探讨的是：能否用集合论来构造自然数集\emph{本身}？
 
 \olimport*[sets-functions-relations/infinite]{infinite}
 \olresetchapter
 
 \OLEndPartHook
 
-\olpart{sth}{The Iterative Conception}
+\olpart{sth}{迭代概念}
 
-\section*{Introduction to \Olref[sth][][]{part}}
+\section*{\Olref[sth][][]{part}导言}
 
-\Olref[sfr][][]{part} discussed sets in a na\"{i}ve, informal way. It
-is now time to tighten this up, and provide a formal theory of sets.
-That is the aim of \olref[sth][][]{part}. 
+\Olref[sfr][][]{part}以朴素、非形式化的方式讨论了集合。现在是时候将其严格化，并提供一个关于集合的形式理论了。这正是\olref[sth][][]{part}的目标。
 
-Our formal theory is a first-order theory with just one two-place
-predicate, $\in$. We will lay down several axioms that govern the
-behaviour of the membership relation. However, we will introduce these
-axioms only as we need them, and consider how we might justify them as
-we encounter them. As a result, we will introduce our axioms
-\emph{throughout} the ensuing chapters.
+我们的形式理论是一个一阶理论，只包含一个二元谓词 $\in$。我们将规定几条支配属于关系的行为的公理。然而，我们只会在需要时引入这些公理，并在遇到它们时思考如何为其辩护。因此，我们将在接下来的各章中\emph{逐步}引入这些公理。
 
-It might, though, be helpful for the reader to have a list of all the
-axioms in one place. So, here are \emph{all} the axioms that we will
-consider in \olref[sth][][]{part}. As in \olref[sfr][][]{part}, the
-choice of lowercase and uppercase letters is guided only by
-readability:
+不过，让读者在一处看到所有公理的列表或许会有所帮助。所以，以下是我们在\olref[sth][][]{part}中将考虑的\emph{所有}公理。如同在\olref[sfr][][]{part}中一样，我们选择大小写字母仅出于可读性的考虑：
 
 \begin{defish}
-\emph{Extensionality.} 
+\emph{外延性公理。}
 \[\forall A \forall B(\forall x(x \in A \liff x \in B) \lif A = B)\]
 \end{defish}
 
 \begin{defish}
-\emph{Union.} 
+\emph{并集公理。}
 \[
 \forall A \exists U \forall x(x \in U \liff (\exists b \in A)x \in b),
 \]
-i.e., $\bigcup A$ exists for any set~$A$.
+即，对任何集合~$A$，$\bigcup A$ 存在。
 \end{defish}
 
 \begin{defish}
-\emph{Pairs.} 
+\emph{对集公理。}
 \[
 \forall a \forall b \exists P \forall x (x \in P \liff
 (x = a \lor x = b)),
 \]
-i.e., $\{a, b\}$ exists for any $a$ and~$b$.
+即，对任何 $a$ 和~$b$，$\{a, b\}$ 存在。
 \end{defish}
 
 \begin{defish}
-\emph{Powersets.}
+\emph{幂集公理。}
 \[
 \forall A \exists P \forall x(x \in P \liff (\forall z \in x)z \in A),
 \]
-i.e., $\Pow{A}$ exists for any set~$A$.
+即，对任何集合~$A$，$\Pow{A}$ 存在。
 \end{defish}
 
 \begin{defish}
-\emph{Infinity.}
+\emph{无穷公理。}
 \begin{multline*}
 \exists I((\exists o \in I)\forall x(x \notin o) \land {}\\
 (\forall x \in I)(\exists s \in I)\forall z(z \in s \liff (z \in x \lor z = x))),
 \end{multline*}
-i.e., there is a set with $\emptyset$ as !!a{element} and which 
-is closed under $x \mapsto x \cup \{x\}$.
+即，存在一个集合，它以 $\emptyset$ 为元素且在 $x \mapsto x \cup \{x\}$ 下封闭。
 \end{defish}
 
 \begin{defish}
-\emph{Foundation.}
+\emph{基础公理。}
 \[
 \forall A(\forall x\, x \notin A \lor (\exists b \in A)(\forall x \in A)x \notin b),
 \]
-i.e., $A = \emptyset$ or $(\exists b \in A)A\cap b = \emptyset$.
+即，$A = \emptyset$ 或 $(\exists b \in A)A\cap b = \emptyset$。
 \end{defish}
 
 \begin{defish}
-\emph{Well-Ordering.} 
-For every set $A$, there is a relation that well-orders $A$.
-(Writing this one out in first-order logic is too painful to bother with.)
+\emph{良序公理。}
+对每个集合 $A$，存在一个关系能良序 $A$。
+（将其用一阶逻辑写出过于繁琐，不值得费心。）
 \end{defish}
 
 \begin{defish}
-\emph{Separation Scheme.}
-For any formula $\phi(x)$ which does not contain~``$S$'':
+\emph{分离公理模式。}
+对任何不包含``$S$''的公式 $\phi(x)$：
 \[
 \forall A \exists S \forall x(x \in S \liff (\phi(x) \land x \in A)),
 \]
-i.e., $\Setabs{x \in A}{\phi(x)}$ exists for any set~$A$.
+即，对任何集合~$A$，$\Setabs{x \in A}{\phi(x)}$ 存在。
 \end{defish}
 
 \begin{defish}
-\emph{Replacement Scheme.} For any formula $\phi(x, y)$ which does not contain~``$B$'':
+\emph{替换公理模式。}
+对任何不包含``$B$''的公式 $\phi(x, y)$：
 \[
 \forall A((\forall x \in A)\lexists![y][\phi(x,y)] \lif \exists B \forall y (y \in B \liff (\exists x \in A)\phi(x,y))),
 \]
-i.e., $\Setabs{y}{(\exists x \in A)\phi(x,y)}$ exists for any $A$, if $\phi$ is ``functional.''
+即，对任何 $A$，如果 $\phi$ ``具有函数性质''，则 $\Setabs{y}{(\exists x \in A)\phi(x,y)}$ 存在。
 \end{defish}
 
-In both schemes, the formulas may contain parameters. Indeed,
-throughout \olref[sth][][]{part}, we follow the convention that any
-formula can contain parameters. (See
-\olref[sfr][infinite][induction]{sec} for a reminder of what it means
-to say that a formula may contain parameters.)
+在两个模式中，公式都可能包含参数。事实上，在整个\olref[sth][][]{part}中，我们都遵循一个惯例：任何公式都可以包含参数。（关于公式可能包含参数的含义，请参见\olref[sfr][infinite][induction]{sec}以作复习。）
 
 \begin{description}
-\item[$\Zminus$] is Extensionality, Union, Pairs, Powersets, Infinity, Separation.
-\item[$\Z$] is $\Zminus$ plus Foundation.
-\item[$\ZFminus$] is $\Z$ plus Replacement.
-\item[$\ZF$] is $\ZFminus$ plus Foundation.
-\item[$\ZFC$] is $\ZF$ plus Well-Ordering.
+\item[$\Zminus$] 包括外延性、并集、对集、幂集、无穷公理和分离公理模式。
+\item[$\Z$] 指 $\Zminus$ 加上基础公理。
+\item[$\ZFminus$] 指 $\Z$ 加上替换公理模式。
+\item[$\ZF$] 指 $\ZFminus$ 加上基础公理。
+\item[$\ZFC$] 指 $\ZF$ 加上良序公理。
 \end{description}
 
 \olimport*[set-theory/story]{story}
 
-\chapter{Steps towards $\Z$}
+\chapter{迈向 $\Z$ 的步骤}
 
-In the previous chapter, we considered the iterative conception of
-set. In this chapter, we will attempt to extract most of the axioms of
-Zermelo's set theory, i.e.,~$\Z$. The approach is \emph{entirely}
-inspired by \citet{Boolos1971},  \citet{Scott1974}, and
-\citet{Shoenfield:AST}. 
+在前一章中，我们考察了集合的迭代概念。在本章中，我们将尝试从中提取出 Zermelo 集合论（即~$\Z$）的大部分公理。这一方法\emph{完全}受到了 \citet{Boolos1971}、\citet{Scott1974} 和 \citet{Shoenfield:AST} 的启发。
 
 \olsetchapter{nosection}
 \olimport*[set-theory/z]{z}
@@ -301,13 +229,9 @@ inspired by \citet{Boolos1971},  \citet{Scott1974}, and
 
 \olimport*[set-theory/cardinals]{cardinals}
 
-\chapter{Cardinal Arithmetic}
+\chapter{基数算术}
 
-In \olref[sth][cardinals][]{chap}, we developed a theory of cardinals.
-Our next step is to outline a theory of cardinal arithmetic. This
-chapter briefly summarises some of the elementary facts, and then
-points to some of the difficulties, which turn out to be fascinating
-and philosophically rich.
+在 \olref[sth][cardinals][]{chap} 章中，我们发展了一套基数理论。下一步是概述基数算术理论。本章简要总结一些基本事实，然后指出其中的一些困难，而这些困难本身既引人入胜，又富有哲学意蕴。
 
 \olsetchapter{nosection}
 \olimport*[set-theory/card-arithmetic]{card-arithmetic}
@@ -320,10 +244,10 @@ and philosophically rich.
 
 \appendix
 
-\def\figurename{Fig.}
+\def\figurename{图}
 \setlength{\olphotowidth}{.45\textwidth}
 
-\chapter{Biographies}
+\chapter{传记}
 
 \olimport*[history/biographies]{georg-cantor}
 
