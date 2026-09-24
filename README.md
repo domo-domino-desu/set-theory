@@ -15,6 +15,13 @@ git submodule update --remote --recursive OpenLogic
 git add OpenLogic
 ```
 
+The Chinese edition needs LuaLaTeX (the text is typeset with `ctex` and
+New Computer Modern), so build it with `make`, which runs
+`latexmk -lualatex`, rather than with `pdflatex`. Every push to
+`master` builds `settheory-screen.pdf`, `settheory-print.pdf` and
+`settheory-print-cover.pdf` in GitHub Actions and attaches them to a
+[release](https://github.com/domo-domino-desu/set-theory/releases).
+
 [![Book Cover](https://st.openlogicproject.org/settheory.png)](https://st.openlogicproject.org/settheory-screen.pdf)
 
 _Set Theory: An Open Introduction_ is a brief introduction to the

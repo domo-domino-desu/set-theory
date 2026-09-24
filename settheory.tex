@@ -4,7 +4,7 @@
 % driver file settheory.tex to produce text
 
 \preto\OLEndChapterHook{\IfFileExists{include/summary-\thechapter}
-        {\section*{小结}\addcontentsline{toc}{section}{小结}
+        {\section*{摘要}\addcontentsline{toc}{section}{摘要}
         \let\emph\textbf\input{include/summary-\thechapter}\let\emph\textit}{}}
 
 \problemsperchapter
@@ -183,7 +183,7 @@
 
 \begin{defish}
 \emph{分离公理模式。}
-对任何不包含``$S$''的公式 $\phi(x)$：
+对任何不包含“$S$”的公式 $\phi(x)$：
 \[
 \forall A \exists S \forall x(x \in S \liff (\phi(x) \land x \in A)),
 \]
@@ -192,11 +192,11 @@
 
 \begin{defish}
 \emph{替换公理模式。}
-对任何不包含``$B$''的公式 $\phi(x, y)$：
+对任何不包含“$B$”的公式 $\phi(x, y)$：
 \[
 \forall A((\forall x \in A)\lexists![y][\phi(x,y)] \lif \exists B \forall y (y \in B \liff (\exists x \in A)\phi(x,y))),
 \]
-即，对任何 $A$，如果 $\phi$ ``具有函数性质''，则 $\Setabs{y}{(\exists x \in A)\phi(x,y)}$ 存在。
+即，对任何 $A$，如果 $\phi$ “具有函数性质”，则 $\Setabs{y}{(\exists x \in A)\phi(x,y)}$ 存在。
 \end{defish}
 
 在两个模式中，公式都可能包含参数。事实上，在整个\olref[sth][][]{part}中，我们都遵循一个惯例：任何公式都可以包含参数。（关于公式可能包含参数的含义，请参见\olref[sfr][infinite][induction]{sec}以作复习。）
